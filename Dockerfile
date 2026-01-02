@@ -14,7 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
 COPY src/ src/
-COPY .env .
+# .env is ignored by git for security, so we don't copy it. 
+# Env vars are passed via docker-compose or the hosting platform.
 
 # Create downloads directory
 RUN mkdir -p downloads
